@@ -15,13 +15,17 @@ $(document).ready(function() {
 
     var newPlace = new Place(inputLocation, inputLandmark, inputSeason);
 
-    $("ul#list").append("<li><span class='place'>" + newPlace.country + "</span></li>");
-
-    $("input#location").val("");
-    $("input#landmark").val("");
-    $("input#season").val("");
-
     $(".results").show();
 
+    $("ul#list").append("<li><span class='place'>" + newPlace.country + "</span></li>");
+
+
+    $(".place").last().click(function() {
+      $(".show-place").show();
+
+      $(".location").text(newPlace.country);
+      $(".landmark").text(newPlace.thing);
+      $(".season").text(newPlace.time);
+    });
   });
 });
